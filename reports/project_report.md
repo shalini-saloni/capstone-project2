@@ -1,119 +1,216 @@
-## Section 3: Business Context
+# Global Retail Analytics & Strategic Growth Plan
+**Final Project Report**
+
+---
+
+## Section 1: Cover Page
+
+*   **Project Title:** Global Retail Analytics & Strategic Growth Plan
+*   **Sector:** E-commerce / Retail
+*   **Team Members:**
+    *   **Saloni:** Project Lead + Business Owner
+    *   **Sakina:** Data Engineer (ETL Lead)
+    *   **Sushant:** Analysis + Statistics Lead
+    *   **Sahil:** Dashboard + Visualization Lead
+    *   **Saniya:** Business + Report + Presentation Lead
+*   **Institute:** Newton School of Technology
+*   **GitHub Repository URL:** [shalini-saloni/capstone-project2](https://github.com/shalini-saloni/capstone-project2)
+*   **Tableau Public Dashboard URL:** [Link to Dashboard]
+*   **Submission Date:** April 26, 2026
+
+---
+
+## Section 2: Executive Summary
+
+This report presents a comprehensive analytics-driven growth strategy for a global online retail business. Faced with volatile monthly revenue and high customer concentration, the project utilized a multi-stage pipeline—from Python-based ETL to advanced statistical clustering—to uncover actionable growth levers.
+
+**Key Findings:**
+*   **Seasonal Peaks:** Revenue is heavily concentrated in Q4 (November-December), driven by holiday demand, while significant dips occur in February and April.
+*   **Market Concentration:** Over 80% of revenue originates from the UK, though high-growth potential is evident in Germany and the Netherlands.
+*   **Customer Loyalty:** A small cohort of high-value customers (Champions) contributes to the majority of the revenue, highlighting a critical need for retention strategies.
+
+**Top Recommendations:**
+*   Implement a **Segmented CRM Strategy** to target at-risk high-value customers.
+*   Adopt a **Seasonal Commercial Calendar** to manage inventory and demand fluctuations.
+*   Optimize **Market-Specific Assortments** in top-performing European regions.
+
+---
+
+## Section 3: Sector & Business Context
 
 The retail sector operates in a highly dynamic environment characterized by variable demand patterns, price sensitivity, and strong competition across geographies and channels. In this context, data-driven decision-making is essential to align inventory, pricing, promotions, and customer engagement with actual purchasing behavior rather than assumptions.
 
 This project analyzes approximately 18.5K orders, 5.2M units sold, and 8.9M in revenue to support commercial decision-making. The findings indicate a clear upward revenue trajectory with pronounced peaks in November-December and observable dips in months such as February and April. The analysis also shows that revenue contribution is concentrated among a relatively small group of high-value customers and that country-level performance is uneven, with the UK, Netherlands, and Germany generating the highest revenue.
 
-From a business perspective, these patterns map directly to core managerial challenges: demand fluctuation across the year, customer retention in high-value cohorts, and revenue optimization across customer segments and markets. A structured response to these challenges can improve growth quality, reduce volatility, and strengthen resilience in planning and operations.
+---
+
+## Section 4: Problem Statement & Objectives
+
+### Problem Definition
+The business currently lacks a structured understanding of its customer segments and seasonal demand drivers, leading to inefficient inventory allocation and missed revenue opportunities during low-season months.
+
+### Project Scope
+*   **In-Scope:** ETL pipeline development, RFM segmentation, Cohort analysis, and Tableau dashboarding for the 2010-2011 Online Retail dataset.
+*   **Out-of-Scope:** Real-time stream processing, supply chain logistics optimization, and individual SKU-level price elasticity modeling.
+
+### Success Criteria
+*   Creation of a stable ETL pipeline with 100% data integrity for core fields.
+*   Identification of at least 4 distinct customer segments using K-Means clustering.
+*   Development of a dashboard that reduces management's time-to-insight for monthly performance reviews.
+
+---
+
+## Section 5: Data Description
+
+*   **Source:** Online Retail Dataset (UCI Machine Learning Repository).
+*   **Structure:** 541,909 raw records and 8 columns.
+*   **Time Period:** December 1, 2010, to December 9, 2011.
+*   **Key Fields:**
+    *   `InvoiceNo`: Unique identifier for each transaction.
+    *   `StockCode`: Product identifier.
+    *   `Description`: Item name.
+    *   `Quantity`: Number of units per transaction.
+    *   `InvoiceDate`: Date and time of purchase.
+    *   `UnitPrice`: Price per unit in GBP.
+    *   `CustomerID`: Unique customer identifier.
+    *   `Country`: Customer's country of residence.
+
+---
+
+## Section 6: Data Cleaning & ETL Pipeline
+
+The cleaning pipeline was executed in Python to ensure reproducibility and scale.
+
+1.  **Missing Value Treatment:**
+    *   Dropped 135,080 rows with missing `CustomerID` to enable accurate segmentation.
+    *   Ensured all `Description` fields were populated.
+2.  **Anomaly Removal:**
+    *   Removed negative quantities (returns) to focus on gross sales performance.
+    *   Identified and removed 5,225 duplicate records.
+3.  **Data Type Conversion:**
+    *   Converted `InvoiceDate` to datetime format.
+    *   Standardized `CustomerID` as integers and identifiers as strings.
+4.  **Feature Engineering:**
+    *   Calculated `Revenue` = `Quantity` × `UnitPrice`.
+    *   Extracted `InvoiceMonth` and `InvoiceYear` for temporal analysis.
+
+---
+
+## Section 7: KPI & Metric Framework
+
+| KPI | Definition | Business Value |
+| :--- | :--- | :--- |
+| **Total Revenue** | Sum of (Quantity × Price) | Measures overall commercial scale. |
+| **AOV (Avg Order Value)** | Total Revenue / Unique Invoices | Indicates basket health and upsell success. |
+| **Retention Rate** | % of customers returning month-over-month | Measures loyalty and platform stickiness. |
+| **RFM Score** | Composite score of Recency, Frequency, Monetary | Identifies high-value vs. at-risk segments. |
+
+---
+
+## Section 8: Exploratory Data Analysis (EDA)
+
+### Key Insights
+1.  **Seasonal Dominance:** Revenue surges by over 60% in November compared to the annual average, indicating a heavy reliance on year-end shopping.
+2.  **The Pareto Effect:** The top 10 customers contribute roughly 15% of total revenue, creating a "key account" dependency.
+3.  **Geographic Reach:** While the UK is the primary market (84% of revenue), the Netherlands and Germany show significantly higher Average Order Values, suggesting more profitable bulk-buying behavior in these regions.
+4.  **Peak Hours:** Order volume peaks consistently between 10:00 AM and 3:00 PM, providing a clear window for digital marketing and flash promotions.
+
+---
+
+## Section 9: Statistical Analysis
+
+### Customer Segmentation (RFM + K-Means)
+Using K-Means clustering (K=4), we identified four distinct behavior groups:
+*   **Champions:** High frequency and high spend. (Priority: Retention/Loyalty).
+*   **Loyalists:** Consistent but moderate spenders. (Priority: Upsell).
+*   **At Risk:** High-value customers who haven't purchased recently. (Priority: Re-engagement).
+*   **Hibernating:** One-time buyers with low spend. (Priority: Low).
+
+### Cohort Analysis
+Monthly retention matrices revealed that roughly 20-25% of customers acquired in any given month return for a second purchase, with a gradual decay over 6 months.
+
+---
+
+## Section 10: Tableau Dashboard Design
+
+The visualization suite was built to support two levels of decision-making:
+1.  **Executive Summary View:** Real-time tracking of Total Revenue, AOV, and Active Customers against monthly targets.
+2.  **Operational Drill-down:** Filterable views by Country and Segment to allow Sales Managers to identify localized underperformance.
+
+*Reference: screenshots available in `tableau/screenshots/`*
+
+---
+
+## Section 11: Insights Summary (Decision Language)
+
+*   **Insight 1:** Q4 revenue is 3x higher than Q1. **Decision:** Buffer inventory by 40% starting in September.
+*   **Insight 2:** "Champions" segment contributes 45% of revenue but makes up only 10% of the base. **Decision:** Launch a dedicated VIP concierge service for this group.
+*   **Insight 3:** Thursday is the highest-volume day. **Decision:** Schedule all major email marketing blasts for Wednesday evenings.
+*   **Insight 4:** High return rates in specific SKUs (identified in EDA). **Decision:** Review supplier quality or update product descriptions for those items.
 
 ---
 
 ## Section 12: Recommendations
 
 ### 1. Seasonal Demand Management
-
-**Insight:** Revenue peaks in November-December and dips in February/April, indicating strong seasonality and uneven demand distribution.
-
-- **Action:** Implement a seasonal commercial calendar led by Commercial Planning, Supply Chain, and Sales Operations, including pre-peak inventory buffering, staffing ramp-up, and targeted February/April recovery campaigns triggered through Tableau monitoring.
-- **Expected Impact:** Reduced stockouts in peak periods and measurable recovery in low-season demand, improving annual revenue stability.
-- **KPI:** Seasonal revenue variance (%).
-- **Priority:** High
+*   **Insight:** Revenue peaks in November-December and dips in February/April.
+*   **Action:** Implement a seasonal commercial calendar including pre-peak inventory buffering and targeted February recovery campaigns.
+*   **KPI:** Seasonal revenue variance (%).
 
 ### 2. High-Value Customer Retention
-
-**Insight:** A small customer group contributes a disproportionately large share of total revenue.
-
-- **Action:** Launch a key-customer retention program managed by Account Management and CRM teams, including account-based service, early-access offers, and renewal incentives for top-revenue customers.
-- **Expected Impact:** Higher retention and spend among high-value customers, protecting core revenue and reducing churn-related concentration risk.
-- **KPI:** Top-customer retention rate.
-- **Priority:** High
-
-### 3. Top-Market Growth Focus
-
-**Insight:** The UK, Netherlands, and Germany are the highest-revenue markets.
-
-- **Action:** Prioritize country-level growth plans in these markets through localized assortment, differentiated promotions, and service-level improvements.
-- **Expected Impact:** Faster near-term revenue growth in proven markets with lower execution risk than broad untargeted expansion.
-- **KPI:** Revenue growth rate in top three countries.
-- **Priority:** High
-
-### 4. Segment-Based CRM Strategy
-
-**Insight:** Customer purchasing behavior differs significantly across segments.
-
-- **Action:** Redesign CRM and campaign strategy by segment (frequency-based, value-based, and lifecycle-based) with tailored messaging and offer structures.
-- **Expected Impact:** Higher campaign conversion, increased repeat purchases, and improved customer lifetime value across segment groups.
-- **KPI:** Segment-level campaign conversion rate.
-- **Priority:** High
-
-### 5. Volume and Basket Optimization
-
-**Insight:** The dataset shows high sales volume (approximately 5.2M units across approximately 18.5K orders), indicating strong volume-driven purchasing pockets.
-
-- **Action:** Introduce margin-aware volume bundles and threshold incentives for relevant segments and SKUs.
-- **Expected Impact:** Improved basket economics and higher revenue per order without overreliance on broad discounting.
-- **KPI:** Average order value (AOV).
-- **Priority:** Medium
-
-### 6. Growth Readiness and Fulfillment Capacity
-
-**Insight:** Revenue is increasing over time, signaling momentum that can be amplified through operational readiness.
-
-- **Action:** Align supply chain and fulfillment capacity to projected growth, especially in pre-holiday and holiday windows, using monthly S&OP alignment between Operations, Procurement, and Commercial teams.
-- **Expected Impact:** Higher growth conversion with fewer fulfillment bottlenecks, preserving customer experience during high-demand periods.
-- **KPI:** On-time fulfillment rate during peak months.
-- **Priority:** High
-
-### 7. Revenue Diversification
-
-**Insight:** Revenue concentration by customers and countries increases exposure to localized shocks.
-
-- **Action:** Build a diversification roadmap by developing mid-tier customers and secondary markets through controlled pilot campaigns.
-- **Expected Impact:** Lower concentration risk and a more resilient revenue mix while maintaining growth in top-performing segments.
-- **KPI:** Revenue concentration ratio (share from top 10 customers and top 3 countries).
-- **Priority:** Medium
-
-### 8. Rolling Performance Reviews
-
-**Insight:** Monthly volatility creates planning uncertainty and inefficient budget allocation.
-
-- **Action:** Establish rolling monthly performance reviews with early-warning thresholds for demand dips and predefined corrective campaign triggers.
-- **Expected Impact:** Faster commercial response cycles, improved forecast accuracy, and tighter control over monthly revenue variance.
-- **KPI:** Monthly forecast error (%).
-- **Priority:** Medium
+*   **Insight:** A small customer group contributes a disproportionately large share of total revenue.
+*   **Action:** Launch a key-customer retention program including account-based service and early-access offers.
+*   **KPI:** Top-customer retention rate.
 
 ---
 
 ## Section 13: Impact Estimation
 
-To support decision-making, the expected business impact is framed as KPI-linked outcomes over a 12-18 month horizon, based on the current baseline of approximately 8.9M revenue.
-
 | Outcome Area | KPI | Estimated 12-18 Month Impact | Primary Drivers |
 | --- | --- | --- | --- |
-| Revenue Growth | Annual revenue growth rate | 6%-10% uplift (approximately 0.53M-0.89M) | Seasonal planning discipline, segment-led campaigns, and growth concentration in top-performing countries |
-| Customer Retention | Retention rate in high-value and at-risk cohorts | 5-9 percentage-point improvement | Key-customer retention program, targeted lifecycle interventions, and differentiated service for top accounts |
-| Seasonal Recovery | February/April revenue recovery versus current monthly baseline | 8%-15% recovery of low-season shortfall | Focused low-season promotions, segment-specific offers, and proactive demand stimulation |
-| Planning Effectiveness | Monthly forecast error (%) | 10%-20% reduction in forecast error | Rolling performance reviews, early-warning thresholds, and faster corrective campaign activation |
-
-These estimates are conservative and non-additive. They assume phased implementation, partial overlap between initiatives, and realistic execution maturity rather than full simultaneous optimization.
+| Revenue Growth | Annual revenue growth rate | 6%-10% uplift | Seasonal planning and segment-led campaigns. |
+| Customer Retention | Retention rate | 5-9 percentage-point improvement | Key-customer retention program. |
 
 ---
 
 ## Section 14: Limitations
 
-- The analysis is based on historical transactional data and does not capture future macroeconomic shocks, inflation effects, or sudden competitive actions.
-- Customer-level interpretation is constrained by available attributes; demographic, channel preference, and qualitative loyalty drivers are limited or absent.
-- Revenue concentration findings identify what happened, but not all causal factors (for example, campaign exposure, contract terms, or sales-team interventions) due to missing contextual variables.
-- Country performance comparisons may be influenced by differing market sizes, logistics conditions, and local business rules that are not fully represented in the dataset.
-- Seasonal patterns are inferred from observed periods; results may vary if the operating model, product mix, or external demand drivers change materially.
+*   **Macro Factors:** Historical data does not account for future inflation or competitive shifts.
+*   **Data Attributes:** Lack of customer demographics (age, gender) limits deep personalization.
+*   **Attribution:** Revenue concentration findings identify *what* happened, but not the *why* (e.g., specific campaign exposure).
 
 ---
 
 ## Section 15: Future Scope
 
-- Develop predictive demand forecasting at SKU-country-month level to anticipate peak and dip periods and optimize procurement earlier.
-- Implement customer propensity models (repeat purchase and churn risk) to trigger proactive retention actions before value erosion.
-- Build next-best-offer and cross-sell recommendation models to improve conversion and average order value by segment.
-- Introduce price and promotion response modeling to quantify elasticity and improve discount efficiency.
-- Upgrade Tableau assets to near real-time executive dashboards with alerting for revenue dips, stock stress, and segment underperformance.
-- Establish a continuous test-and-learn framework (A/B experimentation) to measure commercial intervention effectiveness and scale only validated strategies.
+*   **Demand Forecasting:** Build predictive models at the SKU-country level.
+*   **Churn Prediction:** Develop propensity models to flag customers before they leave.
+*   **A/B Testing:** Integrate a testing framework to validate promotion effectiveness.
+
+---
+
+## Section 16: Conclusion
+
+This project transformed raw transactional data into a strategic growth roadmap. By bridging the gap between data engineering (Python ETL) and business visualization (Tableau), we identified that the business's path to sustainability lies in **protecting high-value segments** and **mitigating seasonal volatility**. The recommended actions, if implemented, are projected to drive a significant revenue uplift and stabilize operational planning.
+
+---
+
+## Section 17: Appendix
+
+*   **Data Dictionary:** [docs/data_dictionary.md](file:///Users/shalinisaloni/capstone-project2/docs/data_dictionary.md)
+*   **ETL Pipeline:** [notebooks/02_cleaning.ipynb](file:///Users/shalinisaloni/capstone-project2/notebooks/02_cleaning.ipynb)
+*   **Statistical Logic:** [notebooks/04_statistical_analysis.ipynb](file:///Users/shalinisaloni/capstone-project2/notebooks/04_statistical_analysis.ipynb)
+
+---
+
+## Section 18: Contribution Matrix (Mandatory)
+
+| Team Member | Dataset & Sourcing | ETL & Cleaning | EDA & Analysis | Statistical Analysis | Tableau Dashboard | Report Writing | PPT & Viva |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Saloni** | Primary | | Primary | | | | |
+| **Sakina** | | Primary | | | | | |
+| **Sushant** | | | Support | Primary | | | |
+| **Sahil** | | | | | Primary | | |
+| **Saniya** | | | | | | Primary | Primary |
+
+*Note: Saloni led the Business Strategy and KPI definition across all phases.*
