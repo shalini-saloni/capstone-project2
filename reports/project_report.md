@@ -213,4 +213,4 @@ This project transformed raw transactional data into a strategic growth roadmap.
 | **Sahil** | | | | | Primary | | |
 | **Saniya** | | | | | | Primary | Primary |
 
-*Note: Saloni led the Business Strategy and KPI definition across all phases.*
+
