@@ -12,7 +12,7 @@
 *   **Faculty Mentor:** _TBD_
 *   **Institute:** Newton School of Technology
 *   **GitHub Repository URL:** [shalini-saloni/capstone-project2](https://github.com/shalini-saloni/capstone-project2)
-*   **Submission Date:** April 27, 2026
+*   **Submission Date:** April 28, 2026
 
 ---
 
