@@ -75,7 +75,7 @@ capstone-project2/
 - **Segmentation:** RFM features and K-Means clustering separate customers into actionable cohorts for differentiated CRM and offer strategy.
 
 ## Tableau Dashboard
-- **Dashboard link (placeholder):** https://public.tableau.com/views/<YOUR_WORKBOOK>/<YOUR_DASHBOARD>
+- **Dashboard link:** https://drive.google.com/file/d/1_dpIDmuvGNGnANQdHyLr5Xb50fXVX9Qq/view?usp=sharing
 - **Screenshots:** `tableau/screenshots/`
 
 ### Dashboard Insights
