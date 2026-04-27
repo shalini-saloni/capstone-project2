@@ -9,22 +9,27 @@ This capstone focuses on:
 - Segmenting customers (RFM + clustering) to inform CRM strategy
 - Delivering insights through a Tableau dashboard and written report
 
+## Team Information
+- **Group Name:** VYRA
+- **Group Members:** Shalini Saloni; Sakina Farukh Ahemad; Sushant Kumar Ojha; Sahil Manjhi; Saniya Jabbar Khatik
+
 ## Team Roles
 | Role | Responsibilities | Owner |
 |---|---|---|
-| Project Lead / Storytelling | Scope, business framing, final narrative, stakeholder-ready outputs | _TBD_ |
-| Data Engineer (ETL) | Ingestion, cleaning, feature engineering, data validation, export to `data/processed/` | _TBD_ |
-| Data Analyst | EDA, KPI design, statistical analysis, segmentation | _TBD_ |
-| BI Developer (Tableau) | Dashboard design, interactivity, publishing, screenshots | _TBD_ |
+| Project Lead / Storytelling | Scope, business framing, final narrative, stakeholder-ready outputs | Shalini Saloni |
+| Data Engineer (ETL) | Ingestion, cleaning, feature engineering, data validation, export to `data/processed/` | Sakina Farukh Ahemad |
+| Data Analyst | EDA, KPI design, statistical analysis, segmentation | Sushant Kumar Ojha |
+| BI Developer (Tableau) | Dashboard design, interactivity, publishing, screenshots | Sahil Manjhi |
+| Report Writer | Report writing, insight narration, recommendations, and documentation formatting | Saniya Jabbar Khatik |
 
 ## Contribution Matrix
 | Team Member | Primary Role | Key Contributions | Deliverables |
 |---|---|---|---|
-| Member 1 | ETL | Data ingestion, cleaning, validation, and feature engineering | Cleaned dataset, ETL workflow, processed exports |
-| Member 2 | Analysis | Exploratory data analysis, KPI definition, statistical analysis, and customer segmentation | EDA outputs, analytical findings, segmentation results |
-| Member 3 | Dashboard | Tableau dashboard design, chart development, filters, and interaction design | Interactive dashboard, dashboard screenshots |
-| Member 4 | Report | Report writing, insight narration, recommendations, and documentation formatting | Final report, documentation, presentation-ready narrative |
-| Member 5 | Project Lead | Project coordination, milestone tracking, business framing, and final review | Project plan, consolidated outputs, final submission |
+| Sakina Farukh Ahemad | ETL | Data ingestion, cleaning, validation, and feature engineering | Cleaned dataset, ETL workflow, processed exports |
+| Sushant Kumar Ojha | Analysis | Exploratory data analysis, KPI definition, statistical analysis, and customer segmentation | EDA outputs, analytical findings, segmentation results |
+| Sahil Manjhi | Dashboard | Tableau dashboard design, chart development, filters, and interaction design | Interactive dashboard, dashboard screenshots |
+| Saniya Jabbar Khatik | Report | Report writing, insight narration, recommendations, and documentation formatting | Final report, documentation, presentation-ready narrative |
+| Shalini Saloni | Project Lead | Project coordination, milestone tracking, business framing, and final review | Project plan, consolidated outputs, final submission |
 
 ## Dataset Summary
 - **File:** `data/raw/online_retail.csv`
