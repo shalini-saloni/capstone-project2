@@ -6,12 +6,12 @@
 ## Section 1: Cover Page
 
 *   **Project Title:** Global Retail Analytics & Strategic Growth Plan
-*   **Group Name:** VYRA
-*   **Group Members:** Shalini Saloni; Sakina Farukh Ahemad; Sushant Kumar Ojha; Sahil Manjhi; Saniya Jabbar Khatik
 *   **Sector:** E-commerce / Retail
+*   **Team Name:** VYRA
+*   **Team Members:** Shalini Saloni; Sakina Farukh Ahemad; Sushant Kumar Ojha; Sahil Manjhi; Saniya Jabbar Khatik
+*   **Faculty Mentor:** _TBD_
 *   **Institute:** Newton School of Technology
 *   **GitHub Repository URL:** [shalini-saloni/capstone-project2](https://github.com/shalini-saloni/capstone-project2)
-*   **Tableau Public Dashboard URL:** [Link to Dashboard]
 *   **Submission Date:** April 27, 2026
 
 ---
@@ -34,9 +34,14 @@ This report presents a comprehensive analytics-driven growth strategy for a glob
 
 ## Section 3: Sector & Business Context
 
-The retail sector operates in a highly dynamic environment characterized by variable demand patterns, price sensitivity, and strong competition across geographies and channels. In this context, data-driven decision-making is essential to align inventory, pricing, promotions, and customer engagement with actual purchasing behavior rather than assumptions.
+### Sector Overview
+The retail sector operates in a highly dynamic environment characterized by variable demand patterns, price sensitivity, and strong competition across geographies and channels. 
 
-This project analyzes approximately 18.5K orders, 5.2M units sold, and 8.9M in revenue to support commercial decision-making. The findings indicate a clear upward revenue trajectory with pronounced peaks in November-December and observable dips in months such as February and April. The analysis also shows that revenue contribution is concentrated among a relatively small group of high-value customers and that country-level performance is uneven, with the UK, Netherlands, and Germany generating the highest revenue.
+### Decision-Maker / Stakeholder
+The primary stakeholders for this project include the **Chief Operating Officer (COO)** and **E-commerce Marketing Managers**, who require data-driven evidence to allocate budgets and manage inventory.
+
+### Why This Problem Matters
+In this context, data-driven decision-making is essential to align inventory, pricing, promotions, and customer engagement with actual purchasing behavior rather than assumptions. Inefficient planning leads to stockouts during peaks and overstocking during dips.
 
 ---
 
@@ -58,18 +63,12 @@ The business currently lacks a structured understanding of its customer segments
 
 ## Section 5: Data Description
 
-*   **Source:** Online Retail Dataset (UCI Machine Learning Repository).
-*   **Structure:** 541,909 raw records and 8 columns.
+*   **Source Citation:** Online Retail Dataset, UCI Machine Learning Repository.
+*   **Access Link:** [UCI Machine Learning Repository - Online Retail](https://archive.ics.uci.edu/ml/datasets/online+retail)
+*   **Dataset Size & Coverage:** 541,909 raw records across 37 countries.
 *   **Time Period:** December 1, 2010, to December 9, 2011.
-*   **Key Fields:**
-    *   `InvoiceNo`: Unique identifier for each transaction.
-    *   `StockCode`: Product identifier.
-    *   `Description`: Item name.
-    *   `Quantity`: Number of units per transaction.
-    *   `InvoiceDate`: Date and time of purchase.
-    *   `UnitPrice`: Price per unit in GBP.
-    *   `CustomerID`: Unique customer identifier.
-    *   `Country`: Customer's country of residence.
+*   **Key Columns:** `InvoiceNo`, `StockCode`, `Description`, `Quantity`, `InvoiceDate`, `UnitPrice`, `CustomerID`, `Country`.
+*   **Data Quality Issues:** High percentage of missing `CustomerID` (~25%) and negative quantities representing returns/cancellations.
 
 ---
 
@@ -92,14 +91,14 @@ The cleaning pipeline was executed in Python to ensure reproducibility and scale
 
 ---
 
-## Section 7: KPI & Metric Framework
+## Section 7: KPI Framework
 
-| KPI | Definition | Business Value |
-| :--- | :--- | :--- |
-| **Total Revenue** | Sum of (Quantity × Price) | Measures overall commercial scale. |
-| **AOV (Avg Order Value)** | Total Revenue / Unique Invoices | Indicates basket health and upsell success. |
-| **Retention Rate** | % of customers returning month-over-month | Measures loyalty and platform stickiness. |
-| **RFM Score** | Composite score of Recency, Frequency, Monetary | Identifies high-value vs. at-risk segments. |
+| KPI | Definition | Formula | Why It Matters |
+| :--- | :--- | :--- | :--- |
+| **Total Revenue** | Total commercial value of sales. | $\sum (\text{Quantity} \times \text{UnitPrice})$ | Measures overall business scale and growth. |
+| **AOV** | Average Order Value. | $\frac{\text{Total Revenue}}{\text{Total Invoices}}$ | Indicates customer spending behavior and upsell success. |
+| **Retention Rate** | Stickiness of the customer base. | $\frac{\text{Returning Customers}}{\text{Total Customers}}$ | Measures loyalty and long-term platform health. |
+| **RFM Score** | Customer value segmentation. | $R + F + M$ (Weighted) | Identifies "Champions" vs. at-risk customers. |
 
 ---
 
@@ -127,13 +126,23 @@ Monthly retention matrices revealed that roughly 20-25% of customers acquired in
 
 ---
 
-## Section 10: Tableau Dashboard Design
+## Section 10: Dashboard Walkthrough
 
-The visualization suite was built to support two levels of decision-making:
-1.  **Executive Summary View:** Real-time tracking of Total Revenue, AOV, and Active Customers against monthly targets.
-2.  **Operational Drill-down:** Filterable views by Country and Segment to allow Sales Managers to identify localized underperformance.
+### Dashboard Objective
+To provide a consolidated view of business health for executive review while allowing regional managers to drill down into specific markets.
 
-*Reference: screenshots available in `tableau/screenshots/`*
+### Executive View
+*   **KPI Scorecard:** Top-line metrics (Revenue, Orders, Customers) at a glance.
+*   **Revenue Trend:** Monthly performance tracking against historical data.
+
+### Operational View
+*   **Country Deep-Dive:** Map view showing revenue distribution across the globe.
+*   **Top Customers/Products:** List views to identify key revenue drivers.
+
+### Filters and Interactivity
+*   **Date Range Filter:** To analyze specific quarters or months.
+*   **Country Filter:** To isolate specific markets (e.g., UK vs. Germany).
+*   **Segment Filter:** To view metrics for specific clusters (e.g., "Champions").
 
 ---
 
@@ -160,49 +169,24 @@ The visualization suite was built to support two levels of decision-making:
 
 ---
 
-## Section 13: Impact Estimation
+## Section 13: Limitations and Next Steps
 
-| Outcome Area | KPI | Estimated 12-18 Month Impact | Primary Drivers |
-| --- | --- | --- | --- |
-| Revenue Growth | Annual revenue growth rate | 6%-10% uplift | Seasonal planning and segment-led campaigns. |
-| Customer Retention | Retention rate | 5-9 percentage-point improvement | Key-customer retention program. |
+### Data & Method Limitations
+*   **Historical Nature:** The 2010-2011 data does not reflect post-pandemic shifts in e-commerce behavior.
+*   **Attribute Gap:** Lack of customer demographic data (age, gender) limits the depth of personalization in the "Recommendations" phase.
+*   **Static Analysis:** The K-Means clustering is a snapshot; customer behavior shifts over time, requiring periodic re-clustering.
 
----
-
-## Section 14: Limitations
-
-*   **Macro Factors:** Historical data does not account for future inflation or competitive shifts.
-*   **Data Attributes:** Lack of customer demographics (age, gender) limits deep personalization.
-*   **Attribution:** Revenue concentration findings identify *what* happened, but not the *why* (e.g., specific campaign exposure).
+### Suggested Future Work
+*   **Predictive Forecasting:** Build an ARIMA or Prophet model to forecast Q4 inventory needs more accurately.
+*   **Churn Propensity:** Develop a logistic regression model to predict the probability of a "Loyalist" becoming "At Risk".
+*   **Tableau Integration:** Link the dashboard to a live database for real-time monitoring.
 
 ---
 
-## Section 15: Future Scope
-
-*   **Demand Forecasting:** Build predictive models at the SKU-country level.
-*   **Churn Prediction:** Develop propensity models to flag customers before they leave.
-*   **A/B Testing:** Integrate a testing framework to validate promotion effectiveness.
-
----
-
-## Section 16: Conclusion
-
-This project transformed raw transactional data into a strategic growth roadmap. By bridging the gap between data engineering (Python ETL) and business visualization (Tableau), we identified that the business's path to sustainability lies in **protecting high-value segments** and **mitigating seasonal volatility**. The recommended actions, if implemented, are projected to drive a significant revenue uplift and stabilize operational planning.
-
----
-
-## Section 17: Appendix
-
-*   **Data Dictionary:** [docs/data_dictionary.md](file:///Users/shalinisaloni/capstone-project2/docs/data_dictionary.md)
-*   **ETL Pipeline:** [notebooks/02_cleaning.ipynb](file:///Users/shalinisaloni/capstone-project2/notebooks/02_cleaning.ipynb)
-*   **Statistical Logic:** [notebooks/04_statistical_analysis.ipynb](file:///Users/shalinisaloni/capstone-project2/notebooks/04_statistical_analysis.ipynb)
-
----
-
-## Section 18: Contribution Matrix (Mandatory)
+## Section 14: Contribution Matrix (Mandatory)
 
 | Team Member | Dataset & Sourcing | ETL & Cleaning | EDA & Analysis | Statistical Analysis | Tableau Dashboard | Report Writing | PPT & Viva |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Shalini Saloni** | Primary | | Primary | | | | |
 | **Sakina Farukh Ahemad** | | Primary | | | | | |
 | **Sushant Kumar Ojha** | | | Support | Primary | | | |
