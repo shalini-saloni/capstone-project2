@@ -26,4 +26,4 @@ This Tableau dashboard visualizes retail sales performance using processed data.
 Data used from `/data/processed/` generated via ETL pipeline.
 
 ## 🔗 Live Dashboard
-[View Dashboard on Google Drive](https://drive.google.com/file/d/1_dpIDmuvGNGnANQdHyLr5Xb50fXVX9Qq/view?usp=sharing)
+[View Dashboard on Google Drive](https://drive.google.com/file/d/1-tE-r3rRIiAqsYI1UPRAXjcL31Hjvawk/view?usp=sharing)
